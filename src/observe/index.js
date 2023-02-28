@@ -2,7 +2,7 @@
  * @Author: Chaoyue
  * @Date: 2023-02-27 23:20:15
  * @LastEditors: Chaoyue
- * @LastEditTime: 2023-02-28 00:35:13
+ * @LastEditTime: 2023-02-28 08:09:15
  * @FilePath: \vuecode\src\observe\index.js
  * @FileDescribe: 数据监听劫持
  */
@@ -29,6 +29,7 @@ export function defineReactive(target, key, value) { // 闭包 属性劫持
             console.log(`set ${key} value`);
             console.log(newValue);
             if (newValue === value) return
+            typeof newValue === 'object' && (observe(newValue))
             value = newValue
         }
 
