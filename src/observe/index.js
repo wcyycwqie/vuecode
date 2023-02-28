@@ -2,9 +2,9 @@
  * @Author: Chaoyue
  * @Date: 2023-02-27 23:20:15
  * @LastEditors: Chaoyue
- * @LastEditTime: 2023-02-28 00:17:40
+ * @LastEditTime: 2023-02-28 00:35:13
  * @FilePath: \vuecode\src\observe\index.js
- * @FileDescribe: 
+ * @FileDescribe: 数据监听劫持
  */
 class Observer {
     constructor(data) {
@@ -17,7 +17,9 @@ class Observer {
     }
 }
 
-export function defineReactive(target, key, value) {
+
+export function defineReactive(target, key, value) { // 闭包 属性劫持
+    observe(value) // 对所有的对象进行属性劫持
     Object.defineProperty(target, key, {
         get() {
             console.log(`get ${key} value`);
@@ -36,12 +38,9 @@ export function defineReactive(target, key, value) {
 
 // 数据劫持
 export function observe(data) {
-
     // 判断是否是对象或者空数据
     if (typeof data !== 'object' || data == null) {
         return // 
     }
-
     return new Observer(data)
-
 }

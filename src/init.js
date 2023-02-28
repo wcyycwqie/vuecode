@@ -2,9 +2,9 @@
  * @Author: Chaoyue
  * @Date: 2023-02-26 20:50:04
  * @LastEditors: Chaoyue
- * @LastEditTime: 2023-02-27 23:41:30
+ * @LastEditTime: 2023-02-28 00:22:35
  * @FilePath: \vuecode\src\init.js
- * @FileDescribe: 
+ * @FileDescribe: 项目初始化
  */
 
 import { initState } from './state'
